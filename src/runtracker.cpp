@@ -56,7 +56,7 @@ int main(int argc, char* argv[]){
 
   	// Read groundtruth for the 1st frame
   	ifstream groundtruthFile;
-	string groundtruth = "region.txt";
+    string groundtruth = "/workspace/KCFcpp/test_data/traffic/groundtruth.txt";
   	groundtruthFile.open(groundtruth);
   	string firstLine;
   	getline(groundtruthFile, firstLine);
@@ -92,14 +92,14 @@ int main(int argc, char* argv[]){
 	
 	// Read Images
 	ifstream listFramesFile;
-	string listFrames = "images.txt";
+    string listFrames = "/workspace/KCFcpp/test_data/traffic/images.txt";
 	listFramesFile.open(listFrames);
 	string frameName;
 
 
 	// Write Results
 	ofstream resultsFile;
-	string resultsPath = "output.txt";
+    string resultsPath = "/workspace/KCFcpp/test_data/traffic/KCFcpp_output.txt";
 	resultsFile.open(resultsPath);
 
 	// Frame counter
@@ -110,7 +110,7 @@ int main(int argc, char* argv[]){
 		frameName = frameName;
 
 		// Read each frame from the list
-		frame = imread(frameName, CV_LOAD_IMAGE_COLOR);
+        frame = imread(frameName, cv::IMREAD_COLOR);
 
 		// First frame, give the groundtruth to the tracker
 		if (nFrames == 0) {

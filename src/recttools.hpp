@@ -36,6 +36,7 @@ the use of this software, even if advised of the possibility of such damage.
 #pragma once
 
 //#include <cv.h>
+#include <opencv2/imgproc/imgproc.hpp>
 #include <math.h>
 
 #ifndef _OPENCV_RECTTOOLS_HPP_
@@ -129,7 +130,7 @@ inline cv::Mat subwindow(const cv::Mat &in, const cv::Rect & window, int borderT
 
 inline cv::Mat getGrayImage(cv::Mat img)
 {
-    cv::cvtColor(img, img, CV_BGR2GRAY);
+    cv::cvtColor(img, img, cv::COLOR_BGR2GRAY);
     img.convertTo(img, CV_32F, 1 / 255.f);
     return img;
 }
